@@ -1,8 +1,10 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Colors } from '@/constants/Colors';
+import { useRouter } from 'expo-router';
 
 export default function Login() {
+    const router = useRouter();
   return (
     <View>
       <Image 
@@ -17,7 +19,9 @@ export default function Login() {
                 fontSize: 28,
                 fontFamily: "outfit-bold",
                 textAlign : "center",
-                marginTop : 10
+                marginTop : 10,
+                paddingRight : 20,
+                paddingLeft : 20
             }}>
                 RUCHIKA SHRIRAM ARTWORKS
             </Text>
@@ -26,17 +30,20 @@ export default function Login() {
                 fontFamily : "outfit-medium",
                 textAlign : "center",
                 color : Colors.GREY,
-                marginTop : 25
+                marginTop : 25,
+                padding : 15
             }}>
                 Keep surfing and booking the art for your loved ones
                 to make their special days memorable "Happy Shopping"
             </Text>
-            <TouchableOpacity style = {styles.button}>
+            <TouchableOpacity style = {styles.button}
+                onPress={()=>router.push('/auth/sign-in')}
+            >
                 <Text style={{
                     color:Colors.WHITE,
-                    fontFamily : "outfit-medium",
-                    fontSize : 20,
-                    textAlign : "center",
+                    fontFamily : 'outfit-bold',
+                    fontSize : 25,
+                    textAlign : 'center',
                 }}>
                     Get Started
                 </Text>
@@ -48,7 +55,7 @@ export default function Login() {
 const styles = StyleSheet.create({
     container : {
         backgroundColor : Colors.WHITE,
-        marginTop: -10,
+        marginTop: -30,
         borderTopRightRadius : 20,
         borderTopLeftRadius : 20,
         padding : 30,
